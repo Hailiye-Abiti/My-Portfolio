@@ -1,982 +1,136 @@
 <!DOCTYPE html>
-<html lang="am" class="dark scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EthioAgriTech Hub | የኢትዮጵያ ግብርና ቴክኖሎጂ መድረክ</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
+    <title>My Developer Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Ethiopic:wght@300;400;600;700;900&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
-
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        agri: {
-                            50: '#f0fdf4',
-                            100: '#dcfce7',
-                            500: '#10b981',
-                            600: '#059669',
-                            700: '#047857',
-                            800: '#065f46',
-                            900: '#022c22',
-                            gold: '#d97706',
-                            earth: '#78350f',
-                            soil: '#451a03'
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'Noto Sans Ethiopic', 'sans-serif'],
-                        display: ['Outfit', 'sans-serif'],
-                        amharic: ['Noto Sans Ethiopic', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
-
-    <style>
-        .glass-panel {
-            background: rgba(6, 95, 70, 0.15);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(16, 185, 129, 0.2);
-        }
-        .light .glass-panel {
-            background: rgba(255, 255, 255, 0.85);
-            border: 1px solid rgba(5, 150, 105, 0.2);
-            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
-        }
-        .agri-gradient {
-            background: linear-gradient(135deg, #065f46 0%, #022c22 100%);
-        }
-        .light .agri-gradient {
-            background: linear-gradient(135deg, #ecfdf5 0%, #dcfce7 100%);
-        }
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #022c22;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #10b98144;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #10b981;
-        }
-        .ticker-wrap {
-            overflow: hidden;
-            white-space: nowrap;
-        }
-        .ticker-move {
-            display: inline-block;
-            animation: ticker 25s linear infinite;
-        }
-        @keyframes ticker {
-            0% { transform: translate3d(0, 0, 0); }
-            100% { transform: translate3d(-50%, 0, 0); }
-        }
-    </style>
 </head>
-<body class="bg-slate-950 light:bg-slate-50 text-slate-100 light:text-slate-800 font-sans min-h-screen transition-colors duration-300">
+<body>
 
-    <!-- AUDIO SOUNDSCAPE TOGGLE FLOATING FAB -->
-    <div class="fixed bottom-6 right-6 z-50">
-        <button id="ambianceToggle" class="glass-panel p-3.5 rounded-full shadow-2xl border border-agri-500/40 text-agri-500 hover:scale-110 active:scale-95 transition-all flex items-center gap-2 group">
-            <i class="fa-solid fa-volume-xmark text-lg" id="ambianceIcon"></i>
-            <span class="text-xs font-bold max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-300 whitespace-nowrap pl-0 group-hover:pl-1" data-lang-en="Farm Soundscape" data-lang-am="የእርሻ ድምፅ አብራ">የእርሻ ድምፅ አብራ</span>
-        </button>
-    </div>
-
-    <!-- LIVE ECX PRICE TICKER BANNER -->
-    <div class="bg-agri-900 border-b border-agri-500/30 text-xs py-2 px-4 flex items-center gap-4 overflow-hidden">
-        <div class="flex items-center gap-2 font-bold text-agri-500 flex-shrink-0 bg-agri-900 z-10 pr-2">
-            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span data-lang-en="ECX LIVE MARKET:" data-lang-am="ኢ.ም.ገ (ECX) የቀጥታ ገበያ:">ኢ.ም.ገ (ECX) የቀጥታ ገበያ:</span>
-        </div>
-        <div class="ticker-wrap w-full text-slate-300">
-            <div class="ticker-move space-x-8 font-mono">
-                <span>🟢 Sidama Coffee Grade-1: <strong class="text-emerald-400">28,450 ETB/Qtl</strong> (+1.8%)</span>
-                <span>🟢 Yirgacheffe Speciality: <strong class="text-emerald-400">32,100 ETB/Qtl</strong> (+2.4%)</span>
-                <span>🟡 Magna Teff (White): <strong class="text-amber-400">11,200 ETB/Qtl</strong> (+0.5%)</span>
-                <span>🔴 Red Teff (ቀይ ጤፍ): <strong class="text-slate-300">8,900 ETB/Qtl</strong> (-0.2%)</span>
-                <span>🟢 Jimma Enor Grade-2: <strong class="text-emerald-400">24,300 ETB/Qtl</strong> (+1.1%)</span>
-                <span>🟢 Harar Longberry: <strong class="text-emerald-400">30,500 ETB/Qtl</strong> (+3.0%)</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- NAVIGATION BAR -->
-    <header class="sticky top-0 z-40 glass-panel border-b border-agri-500/20 px-4 lg:px-8 py-3">
-        <div class="max-w-7xl mx-auto flex items-center justify-between">
-            <!-- Brand Logo -->
-            <a href="#" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-agri-500 via-agri-700 to-agri-gold p-0.5 shadow-lg shadow-agri-500/30 group-hover:scale-105 transition-transform">
-                    <div class="w-full h-full bg-slate-950 light:bg-white rounded-[10px] flex items-center justify-center">
-                        <i class="fa-solid fa-[#10b981] fa-wheat-awn text-agri-500 text-xl group-hover:rotate-12 transition-transform"></i>
-                    </div>
-                </div>
-                <div>
-                    <h1 class="font-display font-extrabold text-lg sm:text-xl tracking-wider text-white light:text-slate-900">
-                        ኢትዮ-<span class="text-agri-500">AgriTech</span>
-                    </h1>
-                    <p class="text-[10px] text-slate-400 light:text-slate-600 font-amharic -mt-1" data-lang-en="Smart Crop Simulator & Market Hub" data-lang-am="የቡናና ጤፍ ስማርት ግብርና መድረክ">የቡናና ጤፍ ስማርት ግብርና መድረክ</p>
-                </div>
-            </a>
-
-            <!-- Nav Tabs -->
-            <nav class="hidden md:flex items-center gap-1 glass-panel px-3 py-1.5 rounded-full border-agri-500/30 text-xs font-semibold">
-                <button class="nav-tab px-4 py-2 rounded-full text-agri-500 bg-agri-500/10 border border-agri-500/30 transition-all" data-target="simulator-section" data-lang-en="Crop Simulator" data-lang-am="የሰብል ሲሙሌተር">የሰብል ሲሙሌተር</button>
-                <button class="nav-tab px-4 py-2 rounded-full text-slate-300 light:text-slate-700 hover:text-agri-500 transition-all" data-target="market-section" data-lang-en="ECX Market Prices" data-lang-am="የኢ.ም.ገ ገበያ ዋጋ">የኢ.ም.ገ ገበያ ዋጋ</button>
-                <button class="nav-tab px-4 py-2 rounded-full text-slate-300 light:text-slate-700 hover:text-agri-500 transition-all" data-target="disease-section" data-lang-en="AI Disease Diagnostic" data-lang-am="የሰብል በሽታ መመርመሪያ">የሰብል በሽታ መመርመሪያ</button>
-                <button class="nav-tab px-4 py-2 rounded-full text-slate-300 light:text-slate-700 hover:text-agri-500 transition-all" data-target="region-section" data-lang-en="Soil & Regions" data-lang-am="የአፈርና ክልሎች ሁኔታ">የአፈርና ክልሎች ሁኔታ</button>
-            </nav>
-
-            <!-- Actions -->
-            <div class="flex items-center gap-3">
-                <!-- Theme Switcher -->
-                <button id="themeToggleBtn" class="p-2.5 rounded-xl glass-panel border border-agri-500/30 text-agri-500 hover:bg-agri-500/20 transition-all" title="Toggle Theme">
-                    <i class="fa-solid fa-moon text-sm" id="themeIcon"></i>
-                </button>
-
-                <!-- Language Switcher -->
-                <button id="langToggleBtn" class="px-3 py-2 rounded-xl glass-panel border border-agri-500/30 text-xs font-bold text-agri-500 hover:bg-agri-500/20 transition-all flex items-center gap-1.5">
-                    <i class="fa-solid fa-globe"></i>
-                    <span id="langLabel">EN</span>
-                </button>
-
-                <!-- Mobile Menu Button -->
-                <button id="mobileMenuBtn" class="md:hidden p-2.5 rounded-xl glass-panel border border-agri-500/30 text-agri-500">
-                    <i class="fa-solid fa-bars text-lg"></i>
-                </button>
-            </div>
-        </div>
-
-        <!-- Mobile Nav Menu -->
-        <div id="mobileNav" class="hidden md:hidden mt-3 pt-3 border-t border-agri-500/20 flex flex-col gap-2 text-sm font-semibold">
-            <button class="nav-tab-mobile text-left px-4 py-2.5 rounded-xl bg-agri-500/10 text-agri-500" data-target="simulator-section" data-lang-en="Crop Simulator" data-lang-am="የሰብል ሲሙሌተር">የሰብል ሲሙሌተር</button>
-            <button class="nav-tab-mobile text-left px-4 py-2.5 rounded-xl text-slate-300 hover:bg-slate-900" data-target="market-section" data-lang-en="ECX Market Prices" data-lang-am="የኢ.ም.ገ ገበያ ዋጋ">የኢ.ም.ገ ገበያ ዋጋ</button>
-            <button class="nav-tab-mobile text-left px-4 py-2.5 rounded-xl text-slate-300 hover:bg-slate-900" data-target="disease-section" data-lang-en="AI Disease Diagnostic" data-lang-am="የሰብል በሽታ መመርመሪያ">የሰብል በሽታ መመርመሪያ</button>
-            <button class="nav-tab-mobile text-left px-4 py-2.5 rounded-xl text-slate-300 hover:bg-slate-900" data-target="region-section" data-lang-en="Soil & Regions" data-lang-am="የአፈርና ክልሎች ሁኔታ">የአፈርና ክልሎች ሁኔታ</button>
-        </div>
+    <!-- Header / Navbar -->
+    <header>
+        <div class="logo">Hi, I'm Hailiye Abiti</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <main class="max-w-7xl mx-auto px-4 lg:px-8 py-8 space-y-10">
-
-        <!-- SECTION 1: CROP SIMULATOR -->
-        <section id="simulator-section" class="tab-content space-y-6">
-            <!-- Header Title -->
-            <div class="glass-panel p-6 rounded-3xl border border-agri-500/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-                <div class="space-y-1">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-agri-500/10 border border-agri-500/30 text-xs font-semibold text-agri-500">
-                        <i class="fa-solid fa-seedling"></i>
-                        <span data-lang-en="Smart Microclimate Yield Simulator" data-lang-am="የአየር ንብረትና የምርት መጠን አስሊ">የአየር ንብረትና የምርት መጠን አስሊ</span>
-                    </div>
-                    <h2 class="text-2xl sm:text-3xl font-display font-extrabold text-white light:text-slate-900">
-                        ETHIOPIAN <span class="text-agri-500">COFFEE & TEFF</span> SIMULATOR
-                    </h2>
-                    <p class="text-xs text-slate-400 light:text-slate-600 max-w-xl" data-lang-en="Simulate crop growth and forecast expected yield per hectare based on altitude, annual rainfall, and soil acidity (pH)." data-lang-am="ከፍታን፣ የዝናብ መጠንን እና የአፈርን አሲዳማነት በመቀያየር የቡና እና የጤፍ እድገትን እና የምርት መጠንን ይገምግሙ።">
-                        ከፍታን፣ የዝናብ መጠንን እና የአፈርን አሲዳማነት በመቀያየር የቡና እና የጤፍ እድገትን እና የምርት መጠንን ይገምግሙ።
-                    </p>
-                </div>
-
-                <div class="flex items-center gap-3">
-                    <button id="simulateSeasonBtn" class="px-5 py-3 rounded-2xl bg-gradient-to-r from-agri-600 to-agri-500 hover:from-agri-500 hover:to-agri-400 text-slate-950 font-bold text-xs shadow-lg shadow-agri-500/30 transition-all flex items-center gap-2 active:scale-95">
-                        <i class="fa-solid fa-play"></i>
-                        <span data-lang-en="Simulate Full Season" data-lang-am="የእድገት ወቅቱን አስምስል">የእድገት ወቅቱን አስምስል</span>
-                    </button>
-                </div>
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <h1>Hi, I'm <span class="highlight">Full Stack Developer</span></h1>
+            <p>I build clean, responsive, and user-friendly web applications.</p>
+            <div class="hero-btns">
+                <a href="#projects" class="btn primary-btn">View My Work</a>
+                <a href="#contact" class="btn secondary-btn">Contact Me</a>
             </div>
-
-            <!-- Simulator Controls & Canvas Visualizer Grid -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-                <!-- Left Control Panel -->
-                <div class="lg:col-span-5 glass-panel p-6 rounded-3xl border border-agri-500/30 space-y-5">
-                    <h3 class="text-sm font-display font-bold text-white light:text-slate-900 border-b border-agri-500/20 pb-3 flex items-center gap-2">
-                        <i class="fa-solid fa-sliders text-agri-500"></i>
-                        <span data-lang-en="FARM PARAMETERS" data-lang-am="የእርሻው መለኪያዎች">የእርሻው መለኪያዎች</span>
-                    </h3>
-
-                    <!-- Crop Selection -->
-                    <div class="space-y-2">
-                        <label class="text-xs font-semibold text-slate-300 light:text-slate-700" data-lang-en="Select Crop Type:" data-lang-am="የሰብል ዓይነት ይምረጡ:">የሰብል ዓይነት ይምረጡ:</label>
-                        <div class="grid grid-cols-2 gap-2">
-                            <button id="cropCoffeeBtn" class="crop-select-btn p-3 rounded-2xl bg-agri-500/20 border-2 border-agri-500 text-agri-500 text-xs font-bold flex items-center justify-center gap-2">
-                                <i class="fa-solid fa-mug-hot"></i>
-                                <span>Ethiopian Coffee</span>
-                            </button>
-                            <button id="cropTeffBtn" class="crop-select-btn p-3 rounded-2xl glass-panel border border-slate-700 light:border-slate-300 text-slate-400 light:text-slate-600 text-xs font-bold flex items-center justify-center gap-2">
-                                <i class="fa-solid fa-wheat-awn"></i>
-                                <span>Teff (ጤፍ)</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Variety Selection -->
-                    <div class="space-y-2">
-                        <label class="text-xs font-semibold text-slate-300 light:text-slate-700" data-lang-en="Crop Variety / Region Origin:" data-lang-am="የዝርያ ዓይነት / መነሻ ቦታ:">የዝርያ ዓይነት / መነሻ ቦታ:</label>
-                        <select id="varietySelect" class="w-full p-3 rounded-xl bg-slate-900 light:bg-white border border-agri-500/30 text-xs text-white light:text-slate-800 focus:outline-none focus:border-agri-500">
-                            <option value="yirgacheffe">Yirgacheffe Arabica (ይርጋጨፌ)</option>
-                            <option value="sidama">Sidama Specialty (ሲዳማ)</option>
-                            <option value="harar">Harar Longberry (ሐረር)</option>
-                        </select>
-                    </div>
-
-                    <!-- Altitude Slider -->
-                    <div class="space-y-1.5">
-                        <div class="flex justify-between text-xs font-mono">
-                            <span class="text-slate-400 light:text-slate-600" data-lang-en="Altitude (Meters above sea level):" data-lang-am="ከፍታ (ከባህር ወለል በላይ በሜትር):">ከፍታ (ከባህር ወለል በላይ በሜትር):</span>
-                            <span id="altitudeVal" class="text-agri-500 font-bold">1950 m</span>
-                        </div>
-                        <input type="range" id="altitudeSlider" min="1200" max="2800" value="1950" class="w-full accent-agri-500 cursor-pointer">
-                    </div>
-
-                    <!-- Rainfall Slider -->
-                    <div class="space-y-1.5">
-                        <div class="flex justify-between text-xs font-mono">
-                            <span class="text-slate-400 light:text-slate-600" data-lang-en="Annual Rainfall (mm/year):" data-lang-am="ዓመታዊ የዝናብ መጠን (ሚ.ሜ):">ዓመታዊ የዝናብ መጠን (ሚ.ሜ):</span>
-                            <span id="rainfallVal" class="text-agri-500 font-bold">1600 mm</span>
-                        </div>
-                        <input type="range" id="rainfallSlider" min="600" max="2400" value="1600" class="w-full accent-agri-500 cursor-pointer">
-                    </div>
-
-                    <!-- Soil pH Slider -->
-                    <div class="space-y-1.5">
-                        <div class="flex justify-between text-xs font-mono">
-                            <span class="text-slate-400 light:text-slate-600" data-lang-en="Soil pH Acidity Level:" data-lang-am="የአፈር አሲዳማነት (pH):">የአፈር አሲዳማነት (pH):</span>
-                            <span id="phVal" class="text-agri-500 font-bold">6.2 pH</span>
-                        </div>
-                        <input type="range" id="phSlider" min="4.5" max="8.0" step="0.1" value="6.2" class="w-full accent-agri-500 cursor-pointer">
-                    </div>
-
-                    <!-- Dynamic Yield Forecast Box -->
-                    <div class="p-4 rounded-2xl bg-agri-900/60 light:bg-emerald-50 border border-agri-500/30 space-y-2">
-                        <div class="flex items-center justify-between text-xs">
-                            <span class="text-slate-400 light:text-slate-600 uppercase font-mono" data-lang-en="Forecasted Yield" data-lang-am="የሚጠበቅ የምርት መጠን">የሚጠበቅ የምርት መጠን</span>
-                            <span id="yieldSuitability" class="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 text-[10px] font-bold">OPTIMAL</span>
-                        </div>
-                        <p id="yieldVal" class="text-2xl font-display font-extrabold text-white light:text-slate-900">
-                            14.8 <span class="text-sm font-normal text-slate-400 light:text-slate-600">Quintals / Hectare</span>
-                        </p>
-                        <p id="yieldAdvice" class="text-[11px] text-slate-300 light:text-slate-700 leading-tight">
-                            Excellent altitude & rainfall for high-grade Specialty Arabica Coffee with dense bean structure.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Right Visual Canvas Panel -->
-                <div class="lg:col-span-7 glass-panel p-4 rounded-3xl border border-agri-500/30 flex flex-col justify-between min-h-[420px] relative">
-                    <div class="flex items-center justify-between pb-2 border-b border-agri-500/20">
-                        <span class="text-xs font-display font-bold text-agri-500 flex items-center gap-2">
-                            <i class="fa-solid fa-eye"></i> LIVE CROP GROWTH CANVAS
-                        </span>
-                        <span id="growthStageText" class="text-xs text-slate-400 light:text-slate-600 font-mono">Stage: Flowering & Cherry Ripening</span>
-                    </div>
-
-                    <!-- Canvas -->
-                    <div class="relative w-full h-[320px] sm:h-[380px] my-2 flex items-center justify-center bg-slate-950/40 rounded-2xl overflow-hidden border border-slate-800/80">
-                        <canvas id="cropCanvas" class="w-full h-full"></canvas>
-                    </div>
-
-                    <!-- Legend -->
-                    <div class="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-agri-500/20 text-[11px] text-slate-400 light:text-slate-600 font-mono">
-                        <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-amber-800"></span> Nitisol Soil Layer</span>
-                        <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span> Foliage Growth</span>
-                        <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-red-500"></span> Ripe Coffee Cherries</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 2: ECX MARKET INTELLIGENCE -->
-        <section id="market-section" class="tab-content hidden space-y-6">
-            <div class="glass-panel p-6 rounded-3xl border border-agri-500/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-                <div>
-                    <h2 class="text-2xl font-display font-bold text-white light:text-slate-900 flex items-center gap-3">
-                        <i class="fa-solid fa-chart-line text-agri-500"></i>
-                        <span data-lang-en="ECX COMMODITY MARKET INTELLIGENCE" data-lang-am="የኢትዮጵያ ምርት ገበያ (ECX) ዋጋ መከታተያ">የኢትዮጵያ ምርት ገበያ (ECX) ዋጋ መከታተያ</span>
-                    </h2>
-                    <p class="text-xs text-slate-400 light:text-slate-600 mt-1" data-lang-en="Track price fluctuations, historical trends, and convert quintal metrics to USD market values." data-lang-am="የቡና እና የጤፍ የቀጥታ ገበያ ዋጋን፣ ያለፉትን አዝማሚያዎች እና የኢትዮጵያ ብር ወደ ዶላር ምንዛሬን ይከታተሉ።">
-                        የቡና እና የጤፍ የቀጥታ ገበያ ዋጋን፣ ያለፉትን አዝማሚያዎች እና የኢትዮጵያ ብር ወደ ዶላር ምንዛሬን ይከታተሉ።
-                    </p>
-                </div>
-            </div>
-
-            <!-- Price Trend Chart & Converter Grid -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-                <!-- Market Chart Box -->
-                <div class="lg:col-span-8 glass-panel p-6 rounded-3xl border border-agri-500/30 space-y-4">
-                    <div class="flex items-center justify-between pb-2 border-b border-agri-500/20">
-                        <h3 class="text-xs font-display font-bold text-white light:text-slate-900 flex items-center gap-2">
-                            <i class="fa-solid fa-chart-area text-agri-500"></i> 6-MONTH PRICE TREND (ETB / QUINTAL)
-                        </h3>
-                        <div class="flex items-center gap-2">
-                            <button class="market-chart-tab px-3 py-1 rounded-lg bg-agri-500/20 text-agri-500 text-[11px] font-bold" data-crop="coffee">Coffee</button>
-                            <button class="market-chart-tab px-3 py-1 rounded-lg glass-panel text-slate-400 text-[11px] font-bold" data-crop="teff">Teff</button>
-                        </div>
-                    </div>
-
-                    <!-- Chart Canvas -->
-                    <div class="w-full h-64 sm:h-72">
-                        <canvas id="marketChartCanvas" class="w-full h-full"></canvas>
-                    </div>
-                </div>
-
-                <!-- Price Converter Calculator -->
-                <div class="lg:col-span-4 glass-panel p-6 rounded-3xl border border-agri-500/30 space-y-5">
-                    <h3 class="text-xs font-display font-bold text-white light:text-slate-900 border-b border-agri-500/20 pb-3 flex items-center gap-2">
-                        <i class="fa-solid fa-calculator text-agri-500"></i>
-                        <span data-lang-en="COMMODITY VALUE CONVERTER" data-lang-am="የመጠኖችና ዋጋ ማስያ">የመጠኖችና ዋጋ ማስያ</span>
-                    </h3>
-
-                    <!-- Weight Calculator Input -->
-                    <div class="space-y-2">
-                        <label class="text-xs text-slate-300 light:text-slate-700" data-lang-en="Quantity in Quintals (1 Qtl = 100 KG):" data-lang-am="መጠን በኩንታል (1 ኩንታል = 100 ኪ.ግ):">መጠን በኩንታል (1 ኩንታል = 100 ኪ.ግ):</label>
-                        <input type="number" id="calcQuintals" value="10" min="1" class="w-full p-3 rounded-xl bg-slate-900 light:bg-white border border-agri-500/30 text-xs text-white light:text-slate-800 font-mono focus:outline-none focus:border-agri-500">
-                    </div>
-
-                    <!-- Crop Grade Selection for Price -->
-                    <div class="space-y-2">
-                        <label class="text-xs text-slate-300 light:text-slate-700" data-lang-en="Select ECX Commodity Grade:" data-lang-am="የምርት ደረጃ ይምረጡ:">የምርት ደረጃ ይምረጡ:</label>
-                        <select id="calcGrade" class="w-full p-3 rounded-xl bg-slate-900 light:bg-white border border-agri-500/30 text-xs text-white light:text-slate-800 focus:outline-none focus:border-agri-500">
-                            <option value="28450">Sidama Coffee Grade 1 (28,450 ETB)</option>
-                            <option value="32100">Yirgacheffe Speciality (32,100 ETB)</option>
-                            <option value="11200">Magna White Teff (11,200 ETB)</option>
-                            <option value="8900">Red Teff (8,900 ETB)</option>
-                        </select>
-                    </div>
-
-                    <!-- Results Output Card -->
-                    <div class="p-4 rounded-2xl bg-agri-900/60 light:bg-emerald-50 border border-agri-500/30 space-y-3">
-                        <div class="flex justify-between items-center text-xs">
-                            <span class="text-slate-400 light:text-slate-600" data-lang-en="Total Weight:" data-lang-am="ጠቅላላ ክብደት:">ጠቅላላ ክብደት:</span>
-                            <span id="calcTotalKg" class="font-mono font-bold text-white light:text-slate-900">1,000 KG</span>
-                        </div>
-                        <div class="flex justify-between items-center text-xs border-t border-slate-800 light:border-slate-200 pt-2">
-                            <span class="text-slate-400 light:text-slate-600" data-lang-en="Total Value (ETB):" data-lang-am="ጠቅላላ ዋጋ (በብር):">ጠቅላላ ዋጋ (በብር):</span>
-                            <span id="calcTotalETB" class="font-mono font-extrabold text-agri-500 text-sm">284,500 ETB</span>
-                        </div>
-                        <div class="flex justify-between items-center text-xs border-t border-slate-800 light:border-slate-200 pt-2">
-                            <span class="text-slate-400 light:text-slate-600" data-lang-en="Est. USD Value ($1=125ETB):" data-lang-am="በአሜሪካን ዶላር ($):">በአሜሪካን ዶላር ($):</span>
-                            <span id="calcTotalUSD" class="font-mono font-bold text-amber-400">$2,276.00 USD</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 3: AI DISEASE DIAGNOSTIC TOOL -->
-        <section id="disease-section" class="tab-content hidden space-y-6">
-            <div class="glass-panel p-6 rounded-3xl border border-agri-500/30">
-                <div class="max-w-2xl mx-auto text-center space-y-2">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-agri-500/10 border border-agri-500/30 text-xs font-semibold text-agri-500">
-                        <i class="fa-solid fa-microscope"></i>
-                        <span data-lang-en="AI Plant Pathology Simulator" data-lang-am="የሰብል በሽታዎች መመርመሪያ">የሰብል በሽታዎች መመርመሪያ</span>
-                    </div>
-                    <h2 class="text-2xl sm:text-3xl font-display font-extrabold text-white light:text-slate-900" data-lang-en="AI Crop Health & Disease Diagnostic" data-lang-am="የቡና እና የጤፍ በሽታዎች AI መመርመሪያ">
-                        የቡና እና የጤፍ በሽታዎች AI መመርመሪያ
-                    </h2>
-                    <p class="text-xs text-slate-400 light:text-slate-600" data-lang-en="Select or simulate a leaf sample symptom to identify diseases like Coffee Leaf Rust or Teff Blight and view organic treatment solutions." data-lang-am="የታመመ ቅጠል ምልክቶችን በመምረጥ እንደ ቡና ዝገት ወይም የጤፍ በሽታዎችን በመለየት ተፈጥሯዊ ህክምናዎችን ያግኙ።">
-                        የታመመ ቅጠል ምልክቶችን በመምረጥ እንደ ቡና ዝገት ወይም የጤፍ በሽታዎችን በመለየት ተፈጥሯዊ ህክምናዎችን ያግኙ።
-                    </p>
-                </div>
-
-                <!-- Diagnostic Interactive Container -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-                    <!-- Sample 1: Coffee Rust -->
-                    <div class="disease-card glass-panel p-5 rounded-3xl border border-agri-500/20 hover:border-agri-500 transition-all cursor-pointer group space-y-4" data-disease="rust">
-                        <div class="w-full h-36 rounded-2xl bg-amber-950/40 border border-amber-800/40 flex items-center justify-center relative overflow-hidden">
-                            <i class="fa-solid fa-disease text-amber-600 text-5xl group-hover:scale-110 transition-transform"></i>
-                            <span class="absolute top-3 left-3 px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-400 text-[10px] font-bold">Coffee Sample</span>
-                        </div>
-                        <div>
-                            <h3 class="text-sm font-bold text-white light:text-slate-900" data-lang-en="Coffee Leaf Rust ('ቡና ዝገት')" data-lang-am="የቡና ቅጠል ዝገት (Leaf Rust)">የቡና ቅጠል ዝገት (Leaf Rust)</h3>
-                            <p class="text-xs text-slate-400 light:text-slate-600 mt-1" data-lang-en="Yellow-orange powdery spots under leaf surface." data-lang-am="በቅጠሉ ስር የሚታዩ ብርቱካናማ ቢጫ ነጠብጣቦች።">በቅጠሉ ስር የሚታዩ ብርቱካናማ ቢጫ ነጠብጣቦች።</p>
-                        </div>
-                        <button class="w-full py-2 rounded-xl bg-agri-500/10 text-agri-500 border border-agri-500/30 text-xs font-bold hover:bg-agri-500 hover:text-slate-950 transition-all">
-                            <span data-lang-en="Analyze Symptoms" data-lang-am="ምልክቱን መርምር">ምልክቱን መርምር</span>
-                        </button>
-                    </div>
-
-                    <!-- Sample 2: Teff Blight -->
-                    <div class="disease-card glass-panel p-5 rounded-3xl border border-agri-500/20 hover:border-agri-500 transition-all cursor-pointer group space-y-4" data-disease="blight">
-                        <div class="w-full h-36 rounded-2xl bg-emerald-950/40 border border-emerald-800/40 flex items-center justify-center relative overflow-hidden">
-                            <i class="fa-solid fa-plant-wilt text-emerald-600 text-5xl group-hover:scale-110 transition-transform"></i>
-                            <span class="absolute top-3 left-3 px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 text-[10px] font-bold">Teff Sample</span>
-                        </div>
-                        <div>
-                            <h3 class="text-sm font-bold text-white light:text-slate-900" data-lang-en="Teff Head Blight ('የጤፍ በሽታ')" data-lang-am="የጤፍ ራስ በሽታ (Head Blight)">የጤፍ ራስ በሽታ (Head Blight)</h3>
-                            <p class="text-xs text-slate-400 light:text-slate-600 mt-1" data-lang-en="Brown lesions on stems and head wilting." data-lang-am="በእሸቱ እና በግንዱ ላይ የሚታዩ ቡናማ ጠባሳዎች።">በእሸቱ እና በግንዱ ላይ የሚታዩ ቡናማ ጠባሳዎች።</p>
-                        </div>
-                        <button class="w-full py-2 rounded-xl bg-agri-500/10 text-agri-500 border border-agri-500/30 text-xs font-bold hover:bg-agri-500 hover:text-slate-950 transition-all">
-                            <span data-lang-en="Analyze Symptoms" data-lang-am="ምልክቱን መርምር">ምልክቱን መርምር</span>
-                        </button>
-                    </div>
-
-                    <!-- Sample 3: Berry Borer -->
-                    <div class="disease-card glass-panel p-5 rounded-3xl border border-agri-500/20 hover:border-agri-500 transition-all cursor-pointer group space-y-4" data-disease="borer">
-                        <div class="w-full h-36 rounded-2xl bg-red-950/40 border border-red-800/40 flex items-center justify-center relative overflow-hidden">
-                            <i class="fa-solid fa-bug text-red-500 text-5xl group-hover:scale-110 transition-transform"></i>
-                            <span class="absolute top-3 left-3 px-2 py-0.5 rounded-full bg-red-500/20 text-red-400 text-[10px] font-bold">Coffee Berry Sample</span>
-                        </div>
-                        <div>
-                            <h3 class="text-sm font-bold text-white light:text-slate-900" data-lang-en="Coffee Berry Borer ('የቡና ፍሬ ተባይ')" data-lang-am="የቡና ፍሬ ቋጣሪ ተባይ (Berry Borer)">የቡና ፍሬ ቋጣሪ ተባይ (Berry Borer)</h3>
-                            <p class="text-xs text-slate-400 light:text-slate-600 mt-1" data-lang-en="Small bore holes at the tip of coffee berries." data-lang-am="በቡና ፍሬው ጫፍ ላይ የሚበሱ ጥቃቅን ቀዳዳዎች።">በቡና ፍሬው ጫፍ ላይ የሚበሱ ጥቃቅን ቀዳዳዎች።</p>
-                        </div>
-                        <button class="w-full py-2 rounded-xl bg-agri-500/10 text-agri-500 border border-agri-500/30 text-xs font-bold hover:bg-agri-500 hover:text-slate-950 transition-all">
-                            <span data-lang-en="Analyze Symptoms" data-lang-am="ምልክቱን መርምር">ምልክቱን መርምር</span>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Diagnostic Modal/Result Box -->
-                <div id="diseaseResultModal" class="hidden mt-8 p-6 rounded-3xl bg-agri-900/80 light:bg-emerald-50 border border-agri-500/40 space-y-4">
-                    <div class="flex items-center justify-between border-b border-agri-500/20 pb-3">
-                        <h4 id="diagTitle" class="text-base font-display font-bold text-agri-500">Diagnosis Details</h4>
-                        <span id="diagConfidence" class="px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-mono font-bold">98.4% Confidence</span>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-                        <div class="space-y-1">
-                            <strong class="text-white light:text-slate-900 block" data-lang-en="Symptom Overview:" data-lang-am="የበሽታው ምልክት:">የበሽታው ምልክት:</strong>
-                            <p id="diagSymptom" class="text-slate-300 light:text-slate-700"></p>
-                        </div>
-                        <div class="space-y-1">
-                            <strong class="text-white light:text-slate-900 block" data-lang-en="Organic Treatment Recommendation:" data-lang-am="ተፈጥሯዊ የህክምና መፍትሔ:">ተፈጥሯዊ የህክምና መፍትሔ:</strong>
-                            <p id="diagTreatment" class="text-slate-300 light:text-slate-700"></p>
-                        </div>
-                    </div>
-                    <div class="pt-2 border-t border-agri-500/20 flex items-center justify-between text-[11px] text-slate-400">
-                        <span><i class="fa-solid fa-phone mr-1 text-agri-500"></i> Local Agri Extension Hotline: <strong>8822 (Ethiopian Ministry of Agriculture)</strong></span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 4: REGIONAL SOIL MAP & WEATHER -->
-        <section id="region-section" class="tab-content hidden space-y-6">
-            <div class="glass-panel p-6 rounded-3xl border border-agri-500/30 space-y-6">
-                <div>
-                    <h2 class="text-2xl font-display font-bold text-white light:text-slate-900 flex items-center gap-3">
-                        <i class="fa-solid fa-map-location-dot text-agri-500"></i>
-                        <span data-lang-en="ETHIOPIAN REGIONAL SOIL & MICROCLIMATE MAP" data-lang-am="የኢትዮጵያ ክልሎች የአፈርና አየር ንብረት መረጃ">የኢትዮጵያ ክልሎች የአፈርና አየር ንብረት መረጃ</span>
-                    </h2>
-                    <p class="text-xs text-slate-400 light:text-slate-600 mt-1" data-lang-en="Select a key agricultural region to inspect soil profile, pH acidity, optimal crop compatibility, and seasonal advice." data-lang-am="የክልሎችን የአፈር ዓይነት፣ የፒ.ኤች (pH) መጠን እና ተስማሚ ሰብሎችን ለማየት ክልል ይምረጡ።">
-                        የክልሎችን የአፈር ዓይነት፣ የፒ.ኤች (pH) መጠን እና ተስማሚ ሰብሎችን ለማየት ክልል ይምረጡ።
-                    </p>
-                </div>
-
-                <!-- Region Selector Buttons -->
-                <div class="flex flex-wrap gap-3">
-                    <button class="region-btn px-4 py-2.5 rounded-2xl bg-agri-500/20 border-2 border-agri-500 text-agri-500 text-xs font-bold" data-region="oromia">Oromia (ኦሮሚያ)</button>
-                    <button class="region-btn px-4 py-2.5 rounded-2xl glass-panel text-slate-300 light:text-slate-700 text-xs font-bold hover:border-agri-500" data-region="sidama">Sidama (ሲዳማ)</button>
-                    <button class="region-btn px-4 py-2.5 rounded-2xl glass-panel text-slate-300 light:text-slate-700 text-xs font-bold hover:border-agri-500" data-region="amhara">Amhara (አማራ)</button>
-                    <button class="region-btn px-4 py-2.5 rounded-2xl glass-panel text-slate-300 light:text-slate-700 text-xs font-bold hover:border-agri-500" data-region="snnpr">SNNPR (ደቡብ)</button>
-                    <button class="region-btn px-4 py-2.5 rounded-2xl glass-panel text-slate-300 light:text-slate-700 text-xs font-bold hover:border-agri-500" data-region="tigray">Tigray (ትግራይ)</button>
-                </div>
-
-                <!-- Regional Data Display Box -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
-                    <div class="glass-panel p-5 rounded-2xl border border-agri-500/20 space-y-2">
-                        <span class="text-[10px] text-slate-400 uppercase font-mono" data-lang-en="Soil Classification" data-lang-am="የአፈር ዓይነት">የአፈር ዓይነት</span>
-                        <h4 id="regionSoilType" class="text-base font-bold text-white light:text-slate-900">Eutric Nitisols (ቀይ አፈር)</h4>
-                        <p id="regionSoilDesc" class="text-xs text-slate-400 light:text-slate-600">Deep, well-drained red clay soil rich in organic matter, ideal for deep-root Arabica trees.</p>
-                    </div>
-
-                    <div class="glass-panel p-5 rounded-2xl border border-agri-500/20 space-y-2">
-                        <span class="text-[10px] text-slate-400 uppercase font-mono" data-lang-en="Average Rainfall & pH" data-lang-am="የዝናብ መጠንና pH">የዝናብ መጠንና pH</span>
-                        <h4 id="regionMetrics" class="text-base font-bold text-agri-500">1,800 mm/yr | 5.8 - 6.4 pH</h4>
-                        <p id="regionMetricsDesc" class="text-xs text-slate-400 light:text-slate-600">Slightly acidic soil optimal for micronutrient absorption in coffee and white teff.</p>
-                    </div>
-
-                    <div class="glass-panel p-5 rounded-2xl border border-agri-500/20 space-y-2">
-                        <span class="text-[10px] text-slate-400 uppercase font-mono" data-lang-en="Top Compatible Crops" data-lang-am="ተስማሚ ሰብሎች">ተስማሚ ሰብሎች</span>
-                        <h4 id="regionCrops" class="text-base font-bold text-amber-400">Jimma Arabica, Guji Coffee, Teff</h4>
-                        <p id="regionAdvice" class="text-xs text-slate-400 light:text-slate-600">Seasonal sowing advice: Plant white teff during mid-July Meher rains.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="border-t border-agri-500/20 glass-panel py-8 mt-16 text-xs text-slate-400 light:text-slate-600">
-        <div class="max-w-7xl mx-auto px-4 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
-            <div class="flex items-center gap-2">
-                <span class="font-display font-bold text-white light:text-slate-900">ኢትዮ-<span class="text-agri-500">AgriTech</span></span>
-                <span>© 2026. Empowering Ethiopian Smallholder Farmers.</span>
-            </div>
-            <p data-lang-en="Supporting Ethiopian Coffee & Teff Agricultural Innovations 🇪🇹" data-lang-am="የኢትዮጵያ ቡና እና ጤፍ ግብርና ቴክኖሎጂን ማሳደግ 🇪🇹">የኢትዮጵያ ቡና እና ጤፍ ግብርና ቴክኖሎጂን ማሳደግ 🇪🇹</p>
         </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2>About Me</h2>
+        <div class="about-container">
+            <p>
+                I am a passionate Software Engineer and Web Developer with expertise in building scalable frontend and backend applications. 
+                I focus on writing clean code, designing intuitive interfaces, and solving complex problems.
+            </p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <h2>Skills & Technologies</h2>
+        <div class="skills-grid">
+            <div class="skill-card"><i class="fa-brands fa-html5"></i><span>HTML5</span></div>
+            <div class="skill-card"><i class="fa-brands fa-css3-alt"></i><span>CSS3</span></div>
+            <div class="skill-card"><i class="fa-brands fa-js"></i><span>JavaScript</span></div>
+            <div class="skill-card"><i class="fa-brands fa-react"></i><span>React</span></div>
+            <div class="skill-card"><i class="fa-brands fa-python"></i><span>Python / Django</span></div>
+            <div class="skill-card"><i class="fa-brands fa-php"></i><span>PHP / MySQL</span></div>
+            <div class="skill-card"><i class="fa-brands fa-git-alt"></i><span>Git & GitHub</span></div>
+            <div class="skill-card"><i class="fa-solid fa-database"></i><span>SQL Databases</span></div>
+            <div class="skill-card"><i class="fa-solid fa-database"></i><span>Java</span></div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <h2>Featured Projects</h2>
+        <div class="projects-grid">
+            
+            <!-- Project 1 -->
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>Student Feedback System</h3>
+                    <p>A role-based web application allowing students to submit feedback securely with dynamic dashboard analytics.</p>
+                    <div class="tags">
+                        <span>PHP</span><span>MySQL</span><span>CSS</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" target="_blank"><i class="fa-brands fa-github"></i> Code</a>
+                        <a href="#" target="_blank"><i class="fa-solid fa-external-link"></i> Live Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>Traffic Control Simulator</h3>
+                    <p>An interactive hardware-software simulation of a 4-way traffic light timing sequence using Arduino and Tinkercad.</p>
+                    <div class="tags">
+                        <span>C++</span><span>Arduino</span><span>Tinkercad</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" target="_blank"><i class="fa-brands fa-github"></i> Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>Web Canvas Interactive App</h3>
+                    <p>Dynamic audio-visual interactive web application built with HTML5 Canvas and custom JavaScript modules.</p>
+                    <div class="tags">
+                        <span>JavaScript</span><span>HTML5 Canvas</span><span>Tone.js</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" target="_blank"><i class="fa-brands fa-github"></i> Code</a>
+                        <a href="#" target="_blank"><i class="fa-solid fa-external-link"></i> Live Demo</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Get In Touch</h2>
+        <p>Feel free to reach out for freelance work or collaboration opportunities!</p>
+        <form id="contact-form">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn primary-btn">Send Message</button>
+        </form>
+    </form>
+
+    <footer>
+        <p>&copy; 2026 Developer Portfolio. Built for Upwork & GitHub Pages.</p>
     </footer>
 
-    <!-- JAVASCRIPT & AUDIO SYNTHESIZER LOGIC -->
-    <script>
-        // --- 1. WEB AUDIO AMBIANCE SYNTHESIZER ---
-        class AgriAmbiance {
-            constructor() {
-                this.ctx = null;
-                this.isPlaying = false;
-                this.gainNode = null;
-            }
-
-            init() {
-                if (!this.ctx) {
-                    this.ctx = new (window.AudioContext || window.webkitAudioContext)();
-                }
-            }
-
-            toggle() {
-                this.init();
-                if (this.isPlaying) {
-                    if (this.ctx) this.ctx.suspend();
-                    this.isPlaying = false;
-                } else {
-                    if (this.ctx.state === 'suspended') {
-                        this.ctx.resume();
-                    } else {
-                        // Synthesize soft ambient wind & subtle birdsong pulse
-                        const bufferSize = this.ctx.sampleRate * 2;
-                        const noiseBuffer = this.ctx.createBuffer(1, bufferSize, this.ctx.sampleRate);
-                        const output = noiseBuffer.getChannelData(0);
-                        for (let i = 0; i < bufferSize; i++) {
-                            output[i] = Math.random() * 2 - 1;
-                        }
-
-                        const whiteNoise = this.ctx.createBufferSource();
-                        whiteNoise.buffer = noiseBuffer;
-                        whiteNoise.loop = true;
-
-                        const filter = this.ctx.createBiquadFilter();
-                        filter.type = 'lowpass';
-                        filter.frequency.value = 300;
-
-                        this.gainNode = this.ctx.createGain();
-                        this.gainNode.gain.value = 0.03;
-
-                        whiteNoise.connect(filter);
-                        filter.connect(this.gainNode);
-                        this.gainNode.connect(this.ctx.destination);
-
-                        whiteNoise.start();
-                    }
-                    this.isPlaying = true;
-                }
-                return this.isPlaying;
-            }
-
-            playBeep() {
-                this.init();
-                try {
-                    const osc = this.ctx.createOscillator();
-                    const g = this.ctx.createGain();
-                    osc.type = 'sine';
-                    osc.frequency.setValueAtTime(600, this.ctx.currentTime);
-                    g.gain.setValueAtTime(0.04, this.ctx.currentTime);
-                    g.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.08);
-                    osc.connect(g);
-                    g.connect(this.ctx.destination);
-                    osc.start();
-                    osc.stop(this.ctx.currentTime + 0.08);
-                } catch(e) {}
-            }
-        }
-
-        const ambiance = new AgriAmbiance();
-        const ambianceToggle = document.getElementById('ambianceToggle');
-        const ambianceIcon = document.getElementById('ambianceIcon');
-
-        ambianceToggle.addEventListener('click', () => {
-            const active = ambiance.toggle();
-            ambianceIcon.className = active ? 'fa-solid fa-volume-high text-lg text-agri-500 animate-pulse' : 'fa-solid fa-volume-xmark text-lg';
-        });
-
-        // --- 2. BILINGUAL LANGUAGE & THEME SYSTEM ---
-        let currentLang = 'am';
-        const langToggleBtn = document.getElementById('langToggleBtn');
-        const langLabel = document.getElementById('langLabel');
-
-        langToggleBtn.addEventListener('click', () => {
-            ambiance.playBeep();
-            currentLang = currentLang === 'am' ? 'en' : 'am';
-            langLabel.textContent = currentLang === 'am' ? 'EN' : 'አማ';
-
-            document.querySelectorAll('[data-lang-en]').forEach(el => {
-                const text = el.getAttribute(`data-lang-${currentLang}`);
-                if (el.tagName === 'INPUT' && el.type === 'text') {
-                    el.placeholder = text;
-                } else {
-                    el.textContent = text;
-                }
-            });
-        });
-
-        // Dark / Light Theme Toggle
-        const themeToggleBtn = document.getElementById('themeToggleBtn');
-        const themeIcon = document.getElementById('themeIcon');
-        let isDark = true;
-
-        themeToggleBtn.addEventListener('click', () => {
-            ambiance.playBeep();
-            isDark = !isDark;
-            document.documentElement.classList.toggle('dark', isDark);
-            document.documentElement.classList.toggle('light', !isDark);
-            themeIcon.className = isDark ? 'fa-solid fa-moon text-sm' : 'fa-solid fa-sun text-sm text-amber-500';
-            drawMarketChart();
-        });
-
-        // --- 3. NAVIGATION TABS ---
-        const navTabs = document.querySelectorAll('.nav-tab, .nav-tab-mobile');
-        const tabContents = document.querySelectorAll('.tab-content');
-
-        navTabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                ambiance.playBeep();
-                const targetId = tab.getAttribute('data-target');
-
-                navTabs.forEach(t => {
-                    t.classList.remove('text-agri-500', 'bg-agri-500/10', 'border', 'border-agri-500/30');
-                    t.classList.add('text-slate-300');
-                });
-
-                tab.classList.add('text-agri-500', 'bg-agri-500/10');
-
-                tabContents.forEach(content => {
-                    if (content.id === targetId) {
-                        content.classList.remove('hidden');
-                    } else {
-                        content.classList.add('hidden');
-                    }
-                });
-
-                document.getElementById('mobileNav').classList.add('hidden');
-                if (targetId === 'market-section') drawMarketChart();
-            });
-        });
-
-        document.getElementById('mobileMenuBtn').addEventListener('click', () => {
-            document.getElementById('mobileNav').classList.toggle('hidden');
-        });
-
-        // --- 4. CROP SIMULATOR CANVAS & YIELD ENGINE ---
-        const cropCanvas = document.getElementById('cropCanvas');
-        const cCtx = cropCanvas.getContext('2d');
-
-        let currentCrop = 'coffee'; // 'coffee' or 'teff'
-        let growthProgress = 0.8; // 0 to 1
-        let isSimulating = false;
-
-        const altitudeSlider = document.getElementById('altitudeSlider');
-        const rainfallSlider = document.getElementById('rainfallSlider');
-        const phSlider = document.getElementById('phSlider');
-
-        const altitudeVal = document.getElementById('altitudeVal');
-        const rainfallVal = document.getElementById('rainfallVal');
-        const phVal = document.getElementById('phVal');
-
-        const cropCoffeeBtn = document.getElementById('cropCoffeeBtn');
-        const cropTeffBtn = document.getElementById('cropTeffBtn');
-        const varietySelect = document.getElementById('varietySelect');
-
-        cropCoffeeBtn.addEventListener('click', () => {
-            currentCrop = 'coffee';
-            cropCoffeeBtn.className = 'crop-select-btn p-3 rounded-2xl bg-agri-500/20 border-2 border-agri-500 text-agri-500 text-xs font-bold flex items-center justify-center gap-2';
-            cropTeffBtn.className = 'crop-select-btn p-3 rounded-2xl glass-panel border border-slate-700 text-slate-400 text-xs font-bold flex items-center justify-center gap-2';
-            varietySelect.innerHTML = `
-                <option value="yirgacheffe">Yirgacheffe Arabica (ይርጋጨፌ)</option>
-                <option value="sidama">Sidama Specialty (ሲዳማ)</option>
-                <option value="harar">Harar Longberry (ሐረር)</option>
-            `;
-            calculateYield();
-            drawCrop();
-        });
-
-        cropTeffBtn.addEventListener('click', () => {
-            currentCrop = 'teff';
-            cropTeffBtn.className = 'crop-select-btn p-3 rounded-2xl bg-agri-500/20 border-2 border-agri-500 text-agri-500 text-xs font-bold flex items-center justify-center gap-2';
-            cropCoffeeBtn.className = 'crop-select-btn p-3 rounded-2xl glass-panel border border-slate-700 text-slate-400 text-xs font-bold flex items-center justify-center gap-2';
-            varietySelect.innerHTML = `
-                <option value="magna">Magna White Teff (ነጭ ጤፍ)</option>
-                <option value="red">Red Teff (ቀይ ጤፍ)</option>
-                <option value="mixed">Sergegna Teff (ሰርገኛ ጤፍ)</option>
-            `;
-            calculateYield();
-            drawCrop();
-        });
-
-        [altitudeSlider, rainfallSlider, phSlider].forEach(slider => {
-            slider.addEventListener('input', () => {
-                altitudeVal.textContent = altitudeSlider.value + ' m';
-                rainfallVal.textContent = rainfallSlider.value + ' mm';
-                phVal.textContent = phSlider.value + ' pH';
-                calculateYield();
-                drawCrop();
-            });
-        });
-
-        function calculateYield() {
-            const alt = parseFloat(altitudeSlider.value);
-            const rain = parseFloat(rainfallSlider.value);
-            const ph = parseFloat(phSlider.value);
-
-            let baseYield = currentCrop === 'coffee' ? 12 : 18;
-            
-            // Altitude factor
-            if (currentCrop === 'coffee' && alt >= 1600 && alt <= 2200) baseYield += 3.5;
-            if (currentCrop === 'teff' && alt >= 1800 && alt <= 2400) baseYield += 4.0;
-
-            // Rainfall factor
-            if (rain >= 1400 && rain <= 1800) baseYield += 2.0;
-
-            // pH factor
-            if (ph >= 5.8 && ph <= 6.8) baseYield += 1.5;
-
-            document.getElementById('yieldVal').innerHTML = `${baseYield.toFixed(1)} <span class="text-sm font-normal text-slate-400">Quintals / Hectare</span>`;
-        }
-
-        function drawCrop() {
-            const w = cropCanvas.parentElement.clientWidth;
-            const h = cropCanvas.parentElement.clientHeight;
-            cropCanvas.width = w;
-            cropCanvas.height = h;
-
-            cCtx.clearRect(0, 0, w, h);
-
-            // Draw Soil Horizon
-            const groundY = h * 0.72;
-            cCtx.fillStyle = '#3a1e05';
-            cCtx.fillRect(0, groundY, w, h - groundY);
-
-            // Soil Layer Line
-            cCtx.strokeStyle = '#059669';
-            cCtx.lineWidth = 3;
-            cCtx.beginPath();
-            cCtx.moveTo(0, groundY);
-            cCtx.lineTo(w, groundY);
-            cCtx.stroke();
-
-            const centerX = w / 2;
-
-            if (currentCrop === 'coffee') {
-                // Draw Coffee Tree Trunk
-                cCtx.strokeStyle = '#5c3317';
-                cCtx.lineWidth = 12 * growthProgress;
-                cCtx.beginPath();
-                cCtx.moveTo(centerX, groundY);
-                cCtx.lineTo(centerX, groundY - (120 * growthProgress));
-                cCtx.stroke();
-
-                // Branches & Foliage
-                cCtx.fillStyle = '#059669';
-                const headY = groundY - (130 * growthProgress);
-                cCtx.beginPath();
-                cCtx.arc(centerX, headY, 65 * growthProgress, 0, Math.PI * 2);
-                cCtx.fill();
-
-                // Coffee Cherries
-                if (growthProgress > 0.6) {
-                    cCtx.fillStyle = '#ef4444';
-                    for (let i = 0; i < 16; i++) {
-                        const cx = centerX + (Math.sin(i * 1.2) * 45 * growthProgress);
-                        const cy = headY + (Math.cos(i * 1.2) * 40 * growthProgress);
-                        cCtx.beginPath();
-                        cCtx.arc(cx, cy, 5, 0, Math.PI * 2);
-                        cCtx.fill();
-                    }
-                }
-            } else {
-                // Draw Teff Stalks
-                cCtx.strokeStyle = '#d97706';
-                cCtx.lineWidth = 2;
-                for (let i = -6; i <= 6; i++) {
-                    const startX = centerX + (i * 12);
-                    cCtx.beginPath();
-                    cCtx.moveTo(startX, groundY);
-                    cCtx.quadraticCurveTo(startX + (i * 2), groundY - (70 * growthProgress), startX + (i * 4), groundY - (140 * growthProgress));
-                    cCtx.stroke();
-
-                    // Teff Panicle / Head
-                    if (growthProgress > 0.5) {
-                        cCtx.fillStyle = '#f59e0b';
-                        cCtx.beginPath();
-                        cCtx.arc(startX + (i * 4), groundY - (145 * growthProgress), 6, 0, Math.PI * 2);
-                        cCtx.fill();
-                    }
-                }
-            }
-        }
-
-        document.getElementById('simulateSeasonBtn').addEventListener('click', () => {
-            ambiance.playBeep();
-            if (isSimulating) return;
-            isSimulating = true;
-            growthProgress = 0.1;
-
-            const interval = setInterval(() => {
-                growthProgress += 0.05;
-                drawCrop();
-                if (growthProgress >= 1) {
-                    clearInterval(interval);
-                    isSimulating = false;
-                }
-            }, 60);
-        });
-
-        window.addEventListener('resize', drawCrop);
-        drawCrop();
-
-        // --- 5. ECX MARKET CHART ENGINE ---
-        const marketChartCanvas = document.getElementById('marketChartCanvas');
-        const mCtx = marketChartCanvas.getContext('2d');
-
-        function drawMarketChart() {
-            const w = marketChartCanvas.parentElement.clientWidth;
-            const h = marketChartCanvas.parentElement.clientHeight;
-            marketChartCanvas.width = w;
-            marketChartCanvas.height = h;
-
-            mCtx.clearRect(0, 0, w, h);
-
-            const points = [22000, 24500, 23800, 26000, 27500, 28450];
-            const max = 35000;
-            const min = 18000;
-
-            mCtx.beginPath();
-            mCtx.strokeStyle = '#10b981';
-            mCtx.lineWidth = 3;
-
-            const step = w / (points.length - 1);
-            points.forEach((pt, idx) => {
-                const x = idx * step;
-                const y = h - ((pt - min) / (max - min)) * h * 0.8 - 20;
-                if (idx === 0) mCtx.moveTo(x, y);
-                else mCtx.lineTo(x, y);
-
-                // Draw Nodes
-                mCtx.fillStyle = '#10b981';
-                mCtx.fillRect(x - 3, y - 3, 6, 6);
-            });
-            mCtx.stroke();
-        }
-
-        // Weight & Price Converter Logic
-        const calcQuintals = document.getElementById('calcQuintals');
-        const calcGrade = document.getElementById('calcGrade');
-
-        function updateConverter() {
-            const qtl = parseFloat(calcQuintals.value) || 0;
-            const price = parseFloat(calcGrade.value);
-
-            const totalKg = qtl * 100;
-            const totalETB = qtl * price;
-            const totalUSD = totalETB / 125; // Simulated official rate
-
-            document.getElementById('calcTotalKg').textContent = totalKg.toLocaleString() + ' KG';
-            document.getElementById('calcTotalETB').textContent = totalETB.toLocaleString() + ' ETB';
-            document.getElementById('calcTotalUSD').textContent = '$' + totalUSD.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' USD';
-        }
-
-        [calcQuintals, calcGrade].forEach(el => el.addEventListener('input', updateConverter));
-        updateConverter();
-
-        // --- 6. AI DISEASE DIAGNOSTIC INTERACTION ---
-        const diseaseCards = document.querySelectorAll('.disease-card');
-        const diseaseModal = document.getElementById('diseaseResultModal');
-
-        const diseaseInfo = {
-            rust: {
-                title: "Coffee Leaf Rust / 'ቡနာ ዝገት' (Hemileia vastatrix)",
-                symptom: "Yellow-orange powdery lesions under coffee leaves leading to premature leaf fall.",
-                treatment: "Apply copper-based organic fungicides; prune shade tree canopy to improve aeration."
-            },
-            blight: {
-                title: "Teff Head Blight / 'የጤፍ እሸት በሽታ'",
-                symptom: "Fungal wilting on teff heads during heavy late-season Meher rainfall.",
-                treatment: "Ensure field drainage; use certified disease-resistant DZ-Cr-387 (Quncho) seed variety."
-            },
-            borer: {
-                title: "Coffee Berry Borer / 'የቡနာ ፍሬ ተባይ' (Hypothenemus hampei)",
-                symptom: "Tiny entrance holes bored into the apex of green and ripe coffee cherries.",
-                treatment: "Harvest cherries cleanly; place alcohol traps around coffee tree perimeter."
-            }
-        };
-
-        diseaseCards.forEach(card => {
-            card.addEventListener('click', () => {
-                ambiance.playBeep();
-                const key = card.getAttribute('data-disease');
-                const info = diseaseInfo[key];
-
-                document.getElementById('diagTitle').textContent = info.title;
-                document.getElementById('diagSymptom').textContent = info.symptom;
-                document.getElementById('diagTreatment').textContent = info.treatment;
-
-                diseaseModal.classList.remove('hidden');
-                diseaseModal.scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-
-        // --- 7. REGIONAL DATA INTERACTION ---
-        const regionBtns = document.querySelectorAll('.region-btn');
-
-        const regionData = {
-            oromia: {
-                soil: "Eutric Nitisols (ቀይ አፈር)",
-                soilDesc: "Deep red volcanic clay, highly fertile with rich organic matter.",
-                metrics: "1,800 mm/yr | 5.8 - 6.4 pH",
-                crops: "Jimma, Guji, West Hararghe Coffee & Magna Teff"
-            },
-            sidama: {
-                soil: "Andosols & Humic Nitisols",
-                soilDesc: "Volcanic ash-enriched soil optimal for high-density coffee cherry sugars.",
-                metrics: "1,600 mm/yr | 6.0 - 6.5 pH",
-                crops: "Sidama Specialty Grade-1, Yirgacheffe Arabica"
-            },
-            amhara: {
-                soil: "Vertisols & Luvisols (ጥቁር አፈር)",
-                soilDesc: "Heavy clay black soil with high water retention capacity.",
-                metrics: "1,200 mm/yr | 6.5 - 7.2 pH",
-                crops: "East Gojjam Magna Teff, Barely, Wheat"
-            },
-            snnpr: {
-                soil: "Dystric Nitisols",
-                soilDesc: "Humid tropical highland soil rich in forest humus.",
-                metrics: "1,900 mm/yr | 5.5 - 6.2 pH",
-                crops: "Kaffa Origin Coffee, Enset, Spices"
-            },
-            tigray: {
-                soil: "Cambisols & Calcisols",
-                soilDesc: "Rocky, well-drained soil adaptable for drought-tolerant grains.",
-                metrics: "750 mm/yr | 6.8 - 7.5 pH",
-                crops: "Red Teff, Sorghum, Drought-Resistant Grains"
-            }
-        };
-
-        regionBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                ambiance.playBeep();
-                regionBtns.forEach(b => {
-                    b.className = 'region-btn px-4 py-2.5 rounded-2xl glass-panel text-slate-300 text-xs font-bold hover:border-agri-500';
-                });
-                btn.className = 'region-btn px-4 py-2.5 rounded-2xl bg-agri-500/20 border-2 border-agri-500 text-agri-500 text-xs font-bold';
-
-                const r = regionData[btn.getAttribute('data-region')];
-                document.getElementById('regionSoilType').textContent = r.soil;
-                document.getElementById('regionSoilDesc').textContent = r.soilDesc;
-                document.getElementById('regionMetrics').textContent = r.metrics;
-                document.getElementById('regionCrops').textContent = r.crops;
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
