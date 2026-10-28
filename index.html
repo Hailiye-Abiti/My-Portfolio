@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Developer Portfolio</title>
+    <title>Hailiye Abiti | Full Stack Developer Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -12,26 +12,55 @@
 
     <!-- Header / Navbar -->
     <header>
-        <div class="logo">Hi, I'm Hailiye Abiti</div>
+        <div class="initial-logo-badge">
+    <span class="initial-letter">HA</span>
+</div>
         <nav>
             <ul class="nav-links">
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#welcome"><i class="fa-solid fa-handshake"></i> Welcome</a></li>
+                <li><a href="#hero"><i class="fa-solid fa-house"></i> Home</a></li>
+                <li><a href="#about"><i class="fa-solid fa-user"></i> About</a></li>
+                <li><a href="#services"><i class="fa-solid fa-gears"></i> Services</a></li>
+                <li><a href="#skills"><i class="fa-solid fa-code"></i> Skills</a></li>
+                <li><a href="#projects"><i class="fa-solid fa-folder-open"></i> Projects</a></li>
+                <li><a href="#certificates"><i class="fa-solid fa-certificate"></i> Certificates</a></li>
+                <li><a href="#journey"><i class="fa-solid fa-road"></i> Journey</a></li>
+                <li><a href="#contact"><i class="fa-solid fa-envelope"></i> Contact</a></li>
             </ul>
         </nav>
+        <!-- Theme Toggle Button -->
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+            <i class="fa-solid fa-sun"></i>
+        </button>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Welcome / Landing Section -->
+    <section id="welcome" class="welcome-section">
+        <div class="welcome-content">
+            <div class="initial-logo-badge welcome-badge">
+    <span class="initial-letter welcome-letter">HA</span>
+</div>
+            <h1>Welcome to My Digital Space</h1>
+            <p>Explore my projects, skills, professional journey, and software development expertise.</p>
+            <a href="#hero" class="btn primary-btn">Get Started <i class="fa-solid fa-arrow-down"></i></a>
+        </div>
+    </section>
+
+    <!-- Hero Section with Profile Image -->
     <section id="hero" class="hero">
-        <div class="hero-content">
-            <h1>Hi, I'm <span class="highlight">Full Stack Developer</span></h1>
-            <p>I build clean, responsive, and user-friendly web applications.</p>
-            <div class="hero-btns">
-                <a href="#projects" class="btn primary-btn">View My Work</a>
-                <a href="#contact" class="btn secondary-btn">Contact Me</a>
+        <div class="hero-container">
+            <div class="hero-image">
+                <img src="profile.jpg" alt="Hailiye Abiti">
+            </div>
+            <div class="hero-content">
+                <h3>Hi, I'm</h3>
+                <h1>Hailiye Abiti</h1>
+                <h2><span class="highlight">Full Stack Software Developer</span></h2>
+                <p>I build clean, responsive, and user-friendly web and desktop applications from Hossana, Ethiopia.</p>
+                <div class="hero-btns">
+                    <a href="#projects" class="btn primary-btn">View My Work</a>
+                    <a href="#contact" class="btn secondary-btn">Contact Me</a>
+                </div>
             </div>
         </div>
     </section>
@@ -41,9 +70,35 @@
         <h2>About Me</h2>
         <div class="about-container">
             <p>
-                I am a passionate Software Engineer and Web Developer with expertise in building scalable frontend and backend applications. 
-                I focus on writing clean code, designing intuitive interfaces, and solving complex problems.
+                I am a passionate Software Engineering student and Full Stack Web Developer with extensive experience in building scalable frontend and backend applications, including Meta certification and real-world projects like EthioAgriTech Hub and Student Feedback Management Systems.
             </p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <h2>My Services</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <i class="fa-solid fa-globe"></i>
+                <span>Web Development</span>
+                <p style="font-size: 0.85rem;" class="card-desc">Building responsive frontend & backend websites using HTML, CSS, JS, PHP, and Django.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fa-solid fa-desktop"></i>
+                <span>Desktop Apps</span>
+                <p style="font-size: 0.85rem;" class="card-desc">Developing robust Java and software applications with MySQL databases.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fa-solid fa-mobile-screen-button"></i>
+                <span>Mobile & Android Apps</span>
+                <p style="font-size: 0.85rem;" class="card-desc">Developing robust Flutter and cross-platform mobile applications integrated with REST APIs and databases.</p>
+           </div>
+            <div class="skill-card">
+                <i class="fa-solid fa-laptop-code"></i>
+                <span>UI/UX & Freelance</span>
+                <p style="font-size: 0.85rem;" class="card-desc">Upwork-ready freelance services with modern layouts and clean code architectures.</p>
+            </div>
         </div>
     </section>
 
@@ -57,10 +112,10 @@
             <div class="skill-card"><i class="fa-brands fa-react"></i><span>React</span></div>
             <div class="skill-card"><i class="fa-brands fa-python"></i><span>Python / Django</span></div>
             <div class="skill-card"><i class="fa-brands fa-php"></i><span>PHP / MySQL</span></div>
+            <div class="skill-card"><i class="fa-brands fa-java"></i><span>Java</span></div>
+            <div class="skill-card"><i class="fa-solid fa-code"></i><span>C++</span></div>
             <div class="skill-card"><i class="fa-brands fa-git-alt"></i><span>Git & GitHub</span></div>
             <div class="skill-card"><i class="fa-solid fa-database"></i><span>SQL Databases</span></div>
-            <div class="skill-card"><i class="fa-solid fa-database"></i><span>Java</span></div>
-            <div class="skill-card"><i class="fa-solid fa-database"></i><span>C++</span></div>
         </div>
     </section>
 
@@ -79,7 +134,6 @@
                     </div>
                     <div class="project-links">
                         <a href="https://github.com/Hailiye-Abiti/Student-Feedback-Management-System" target="_blank"><i class="fa-brands fa-github"></i> Code</a>
-                        <a href="#" target="_blank"><i class="fa-solid fa-external-link"></i> Live Demo</a>
                     </div>
                 </div>
             </div>
@@ -93,7 +147,7 @@
                         <span>C++</span><span>Arduino</span><span>Tinkercad</span>
                     </div>
                     <div class="project-links">
-                        <a href="https://www.tinkercad.com/things/iTEc0MbBUeJ-smashing-bombul" target="_blank"><i class="fa-brands fa-github"></i> Code</a>
+                        <a href="https://www.tinkercad.com/things/iTEc0MbBUeJ-smashing-bombul" target="_blank"><i class="fa-solid fa-external-link"></i> Simulation</a>
                     </div>
                 </div>
             </div>
@@ -102,7 +156,7 @@
             <div class="project-card">
                 <div class="project-info">
                     <h3>EthioAgriTech Hub</h3>
-                    <p>EthioAgriTech Hub is an interactive web platform designed specifically for the Ethiopian agricultural sector. It focuses on the country's two most iconic and economically vital crops: Coffee (Coffea arabica) and Teff (Eragrostis tef).</p>
+                    <p>An interactive web platform designed specifically for the Ethiopian agricultural sector focusing on Coffee and Teff.</p>
                     <div class="tags">
                         <span>HTML</span><span>CSS</span><span>JavaScript</span>
                     </div>
@@ -112,48 +166,63 @@
                     </div>
                 </div>
             </div>
-<!-- Project 4 -->
 
-<div class="project-card">
+            <!-- Project 4 -->
+            <div class="project-card">
                 <div class="project-info">
-                    <h3> Java-Desktop-Application-Student-Feedback-Management-System</h3>
-                    <p>A Java-based desktop application designed for Wachemo University to manage and analyze student feedback efficiently. Built with Java (Swing/JavaFX) and MySQL database.</p>
+                    <h3>Java Desktop Student Feedback System</h3>
+                    <p>A Java-based desktop application designed for Wachemo University with MySQL integration.</p>
                     <div class="tags">
-                        <span>Java</span><span>Lounch4j</span><span>MYSQL</span>
+                        <span>Java</span><span>Launch4j</span><span>MySQL</span>
                     </div>
                     <div class="project-links">
-                        <a href="https://github.com/Hailiye-Abiti/Java-Desktop-Application-Student-Feedback-Management-System" target="_blank"><i class="fa-brands fa-github"></i> Live Demo</a>
-                        <a href="https://github.com/Hailiye-Abiti/Java-Desktop-Application-Student-Feedback-Management-System/releases/latest/" target="_blank"><i class="fa-solid fa-external-link"></i> Download application</a>
+                        <a href="https://github.com/Hailiye-Abiti/Java-Desktop-Application-Student-Feedback-Management-System" target="_blank"><i class="fa-brands fa-github"></i> Repository</a>
+                        <a href="https://github.com/Hailiye-Abiti/Java-Desktop-Application-Student-Feedback-Management-System/releases/latest/" target="_blank"><i class="fa-solid fa-download"></i> Download</a>
                     </div>
                 </div>
             </div>
 
+        </div>
+    </section>
 
-            
-<!-- Project 5 -->
-             <div class="project-card">
-                <div class="project-info">
-                    <h3>Othor profile </h3>
-                    <div class="project-links">
-                        <a href="https://linktr.ee/Hailiye_Abiti" target="_blank"><i class="fa-brands fa-github"></i> View My Profile</a>
-                    </div>
-                </div>
-            </div>
-<!-- Project 6 -->
+    <!-- Certificates Section -->
+    <section id="certificates" class="projects">
+        <h2>Certificates & Profiles</h2>
+        <div class="projects-grid">
             <div class="project-card">
                 <div class="project-info">
                     <h3>Online Coursera Certificate</h3>
-                    <p>Hailiye Abiti Admasu has successfully completed the online Specialization Meta Full Stack Developer: Front-End & Back-End from Scratch</p>
+                    <p>Meta Full Stack Developer Specialization covering Front-End & Back-End from scratch.</p>
                     <div class="tags">
-                        <span>Introduction to Front-End Development</span><span>JavaScript</span><span>Version Control</span><span>HTML and CSS in depth</span><span>React Basics</span><span>Programming in Python</span><span>Introduction to Databases for Back-End Development</span>
+                        <span>React</span><span>Python</span><span>JavaScript</span><span>Databases</span>
                     </div>
                     <div class="project-links">
-                        <a href="https://coursera.org/share/7a325e325150c8e275c86430b4fef23d" target="_blank"><i class="fa-solid fa-external-link"></i> View Career Certificate</a>
+                        <a href="https://coursera.org/share/7a325e325150c8e275c86430b4fef23d" target="_blank"><i class="fa-solid fa-certificate"></i> View Certificate</a>
                     </div>
                 </div>
+            </div>
 
-            
-            
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>Other Profiles & Linktree</h3>
+                    <p>Connect with all my professional profiles and social channels in one place.</p>
+                    <div class="tags">
+                        <span>Linktree</span><span>Socials</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://linktr.ee/Hailiye_Abiti" target="_blank"><i class="fa-solid fa-link"></i> View My Profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journey Section -->
+    <section id="journey" class="about">
+        <h2>My Journey & Education</h2>
+        <div class="about-container" style="text-align: left;">
+            <p><i class="fa-solid fa-graduation-cap" style="color: var(--accent-color);"></i> <strong>Wachemo University</strong>: 4th Year Software Engineering Student (Hossana, Ethiopia).</p>
+            <p style="margin-top: 1rem;"><i class="fa-solid fa-laptop-code" style="color: var(--accent-color);"></i> <strong>Freelance & Development</strong>: Building full stack web apps, active on Upwork and GitHub.</p>
         </div>
     </section>
 
@@ -161,16 +230,25 @@
     <section id="contact" class="contact">
         <h2>Get In Touch</h2>
         <p>Feel free to reach out for freelance work or collaboration opportunities!</p>
-        <form id="contact-form">
-            <input type="text" id="name" placeholder="Your Name" required>
-            <input type="email" id="email" placeholder="Your Email" required>
-            <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+        
+        <!-- Social Media Links & Phone Contact Info Box -->
+        <div class="social-contact-box">
+            <a href="https://github.com/Hailiye-Abiti" target="_blank" class="social-btn github"><i class="fa-brands fa-github"></i> GitHub</a>
+            <a href="https://linkedin.com" target="_blank" class="social-btn linkedin"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+            <a href="https://t.me/Hailiye1" target="_blank" class="social-btn telegram"><i class="fa-brands fa-telegram"></i> Telegram</a>
+            <a href="tel:+251909436988" class="social-btn phone"><i class="fa-solid fa-phone"></i> +251 909436988</a>
+        </div>
+
+        <form id="contact-form" action="https://formspree.io/f/mvkkkkgn" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
             <button type="submit" class="btn primary-btn">Send Message</button>
         </form>
-    </form>
+    </section>
 
     <footer>
-        <p>&copy; 2026 Developer Portfolio. Built for Upwork & GitHub Pages.</p>
+        <p>&copy; 2026 Hailiye Abiti. Built for Upwork & GitHub Pages.</p>
     </footer>
 
     <script src="script.js"></script>
